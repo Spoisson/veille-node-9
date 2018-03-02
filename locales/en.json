@@ -4,9 +4,9 @@
 	"accueil" : "Home",
 	"vider" : "Empty",
 	"adresses" : "Addresses",
-	"identifiant" : "Identifiant",
-	"nom" : "Surname",
-	"prenom" : "Name",
+	"identifiant" : "Identifier",
+	"nom" : "Last Name",
+	"prenom" : "First Name",
 	"telephone" : "Phone",
 	"courriel" : "Email"
 
