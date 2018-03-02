@@ -3,6 +3,12 @@
 	"courriel": "Email",
 	"accueil" : "Home",
 	"vider" : "Empty",
-	"adresses" : "Addresses"
+	"adresses" : "Addresses",
+	"identifiant" : "Identifiant",
+	"nom" : "Surname",
+	"prenom" : "Name",
+	"telephone" : "Phone",
+	"courriel" : "Email"
+
 
 }

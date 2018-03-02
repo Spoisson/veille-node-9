@@ -3,6 +3,11 @@
 	"courriel": "Courriel",
 	"accueil" : "Accueil",
 	"vider" : "Vider",
-	"adresses" : "Adresses"
+	"adresses" : "Adresses",
+	"identifiant" : "Identifiant",
+	"nom" : "Nom",
+	"prenom" : "Prénom",
+	"telephone" : "Téléphone",
+	"courriel" : "Courriel"
 
 }
