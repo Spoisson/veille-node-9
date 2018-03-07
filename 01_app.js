@@ -153,11 +153,11 @@ app.get('/detruire/:id', (req, res) => {
  // console.log('util = ' + util.inspect(req.params));	
  var id = req.params.id
  console.log(id)
- db.collection('adresse')
- .findOneAndDelete({"_id": ObjectID(req.params.id)}, (err, resultat) => {
+ db.collection('adresse').findOneAndDelete({"_id": ObjectID(req.params.id)}, (err, resultat) => {
 
-if (err) return console.log(err)
- res.redirect('/adresse')  // redirige vers la route qui affiche la collection
+	if (err) return console.log(err)
+	res.redirect('/adresse')  // redirige vers la route qui affiche la collection
+
  })
 })
 
@@ -190,15 +190,57 @@ app.get('/vider', (req, res) => {
 
 app.post('/ajax_modifier', (req,res) => {
 
-	console.log('route /ajax_modifier')
+	//console.log('route /ajax_modifier')
 	// console.log('util = ' + util.inspect(req.body));
 	req.body._id = 	ObjectID(req.body._id)
-	console.log('req.body._id = ' + req.body._id)
+	//console.log('req.body._id = ' + req.body._id)
+	//console.log(req.body);
  	db.collection('adresse').save(req.body, (err, result) => {
 
 		if (err) return console.log(err)
-			console.log('sauvegarder dans la BD')
-			res.send(JSON.stringify(req.body))
-		})
+		//console.log('sauvegarder dans la BD')
+		//console.log(res);
+		//console.log(res.send);
+		res.send(JSON.stringify(req.body))
+
+	})
+
+})
+
+app.post('/ajax_detruire', (req,res) => {
+
+	//console.log('route /ajax_modifier')
+	// console.log('util = ' + util.inspect(req.body));
+	req.body._id = 	ObjectID(req.body._id)
+	//console.log('req.body._id = ' + req.body._id)
+	//console.log(req.body);
+
+
+	db.collection('adresse').findOneAndDelete({"_id": req.body._id}, (err, resultat) => {
+
+		if (err) return console.log(err)
+		//console.log('retiré de la BD')
+		//console.log(JSON.stringify(req.body));
+		//res.send(JSON.stringify(req.body))
+		res.send(req.body._id);
+		//res.redirect('/adresse')
+		//res.redirect('#')  // redirige vers la route qui affiche la collection
+
+ 	})
+
+})
+
+
+
+app.post('/ajax_ajouter', (req,res) => {
+
+	console.log('route /ajouter')	
+	 db.collection('adresse').save(req.body, (err, result) => {
+	 if (err) return console.log(err)
+	 // console.log(req.body)	
+	 console.log('sauvegarder dans la BD')
+	 res.send(JSON.stringify(req.body));
+
+	 })
 
 })
