@@ -238,8 +238,8 @@ app.post('/ajax_ajouter', (req,res) => {
 	 db.collection('adresse').save(req.body, (err, result) => {
 	 if (err) return console.log(err)
 	 // console.log(req.body)	
-	 console.log('sauvegarder dans la BD')
-	 res.send(JSON.stringify(req.body));
+	 //console.log(result.ops[0]._id)
+	res.redirect('/adresse')
 
 	 })
 
