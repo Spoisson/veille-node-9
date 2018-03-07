@@ -94,7 +94,7 @@ app.get('/:local(en|fr)', function (req, res) {
 //////////////////////////////////////////
 app.get('/', function (req, res) {
 
- 	console.log("req.cookies.langueChoisie = " + req.cookies.langueChoisie);
+ 	//console.log("req.cookies.langueChoisie = " + req.cookies.langueChoisie);
  	res.setLocale(req.cookies.langueChoisie);
  	//console.log(res.__('courriel'));
  	//console.log(langueEnCours);
