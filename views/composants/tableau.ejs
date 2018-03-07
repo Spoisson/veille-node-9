@@ -77,8 +77,69 @@ console.log(maReponse._id)
 }
 
 
+    let elmModifier = document.querySelectorAll('.modifier')
+    console.log(elmModifier.length)
+    for (elm of elmModifier)
+        {
 
 
+            elm.addEventListener('click', function(){
+
+                console.log(this.parentElement);
+
+                let elmTr = this.parentElement.parentElement 
+                let _id = elmTr.querySelector('td:nth-child(1)').innerHTML
+                let nom = elmTr.querySelector('td:nth-child(2)').innerHTML
+                let prenom = elmTr.querySelector('td:nth-child(3)').innerHTML
+                let telephone = elmTr.querySelector('td:nth-child(4)').innerHTML
+                let courriel = elmTr.querySelector('td:nth-child(5)').innerHTML
+
+
+                console.log('ok')
+                xhr = new XMLHttpRequest();
+                xhr.open('POST', "/ajax_modifier", true);
+                data = {
+                "nom" : nom,
+                "prenom" : prenom,
+                "telephone" : telephone,
+                "_id" : _id
+
+                }
+
+                console.log(data)
+                sData = JSON.stringify(data);
+                xhr.setRequestHeader('Content-type', 'application/json');
+                xhr.send(sData);
+                xhr.addEventListener("readystatechange", traiterRequest, false);
+                
+            })
+
+/*
+            elm.addEventListener('click', function(){
+            console.log(this.parentElement.parentElement.id)
+            let elmTr = this.parentElement.parentElement 
+            let _id = elmTr.querySelector('td:nth-child(1)').innerHTML
+            let nom = elmTr.querySelector('td:nth-child(2)').innerHTML
+            let prenom = elmTr.querySelector('td:nth-child(3)').innerHTML
+            let telephone = elmTr.querySelector('td:nth-child(4)').innerHTML
+            let courriel = elmTr.querySelector('td:nth-child(5)').innerHTML
+
+            elmForm = document.getElementById('frmUpdate')
+
+            elmForm.nom.value = nom
+            elmForm.prenom.value = prenom
+            elmForm.telephone.value = telephone
+            elmForm.courriel.value = courriel
+            elmForm._id.value =  _id
+            elmForm.submit()
+            })
+
+*/
+        }
+
+
+
+/*
 
 
     let elmModifier = document.querySelectorAll('.modifier')
@@ -105,7 +166,7 @@ console.log(maReponse._id)
             })
         }
 
-
+*/
 
 </script>
 
