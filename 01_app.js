@@ -77,12 +77,14 @@ app.get('/fr', function (req, res) {
 //////////////////////////////////////////
 app.get('/:local(en|fr)', function (req, res) {
 
-	console.log(req.params.local);
+	//console.log(req.params.local);
 	res.cookie('langueChoisie' , req.params.local);
 	res.setLocale(req.params.local);
-	console.log(res.__('courriel'));
+	//console.log(res.__('courriel'));
 
- res.render('accueil.ejs')  
+ 	res.render('accueil.ejs');
+
+ //res.render('accueil.ejs')  
  
   });
 
@@ -93,8 +95,9 @@ app.get('/:local(en|fr)', function (req, res) {
 app.get('/', function (req, res) {
 
  	console.log("req.cookies.langueChoisie = " + req.cookies.langueChoisie);
- 	console.log(res.__('courriel'));
- 	res.render('accueil.ejs')  
+ 	//console.log(res.__('courriel'));
+ 	//console.log(langueEnCours);
+ 	res.render('accueil.ejs');
  
   });
 
