@@ -5,6 +5,7 @@ const app = express();
 const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient; // le pilote MongoDB
 const ObjectID = require('mongodb').ObjectID;
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 /* on associe le moteur de vue au module «ejs» */
 
@@ -181,3 +182,17 @@ app.get('/vider', (req, res) => {
 })
 
 
+app.post('/ajax_modifier', (req,res) => {
+
+	console.log('route /ajax_modifier')
+	// console.log('util = ' + util.inspect(req.body));
+	req.body._id = 	ObjectID(req.body._id)
+	console.log('req.body._id = ' + req.body._id)
+ 	db.collection('adresse').save(req.body, (err, result) => {
+
+		if (err) return console.log(err)
+			console.log('sauvegarder dans la BD')
+			res.send(JSON.stringify(req.body))
+		})
+
+})
